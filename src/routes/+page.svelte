@@ -1,4 +1,5 @@
 <script>
+	import { fade } from 'svelte/transition';
 	import ChartAvgMultiplier from './ChartAvgMultiplier.svelte';
 	import ChartHolders from './ChartHolders.svelte';
 	import ChartMarketCap from './ChartMarketCap.svelte';
@@ -45,7 +46,7 @@
 </svelte:head>
 
 {#if stats != null}
-	<div class="container mt-3">
+	<div class="container mt-3" in:fade>
 		<div class="row justify-content-lg-center">
 			<div class="col-lg-8 mb-3">
 				<div class="fs-2 text-center border-bottom">14-Day $RISE Price</div>
@@ -157,5 +158,7 @@
 	<br />
 	<br />
 
-	<PriceFooter {stats} />
+	<div in:fade>
+		<PriceFooter {stats} />
+	</div>
 {/if}

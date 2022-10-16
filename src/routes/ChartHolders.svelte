@@ -1,6 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
-	import Chart from 'chart.js/auto';
+	import { Chart, registerables } from 'chart.js/dist/chart.mjs';
+	Chart.register(...registerables);
+
 	import ChartDataLabels from 'chartjs-plugin-datalabels';
 	import './tokenColors.js';
 	import { avaxColor, bscColor, ethColor, ftmColor, polyColor } from './tokenColors.js';
