@@ -1,5 +1,5 @@
 <script>
-	import { fade } from 'svelte/transition';
+	import { fade, scale } from 'svelte/transition';
 	import ChartAvgMultiplier from './ChartAvgMultiplier.svelte';
 	import ChartHolders from './ChartHolders.svelte';
 	import ChartMarketCap from './ChartMarketCap.svelte';
@@ -46,16 +46,16 @@
 </svelte:head>
 
 {#if stats != null}
-	<div class="container mt-3" in:fade>
+	<div class="container mt-3">
 		<div class="row justify-content-lg-center">
-			<div class="col-lg-8 mb-3">
+			<div class="col-lg-8 mb-3" in:fade>
 				<div class="fs-2 text-center border-bottom">14-Day $RISE Price</div>
 				<ChartPrice14Day {stats} />
 			</div>
 		</div>
 
 		<br />
-		<div class="row justify-content-lg-center">
+		<div class="row justify-content-lg-center" in:fade>
 			<div class="col-lg-8">
 				<div class="fs-2 text-center border-bottom">2-Day $RISE Price</div>
 				<ChartPrice2Day {stats} />
@@ -63,7 +63,7 @@
 		</div>
 
 		<br />
-		<div class="row mt-4 justify-content-lg-center">
+		<div class="row justify-content-lg-center" in:fade>
 			<div class="col-lg-6">
 				<div class="fs-2 text-center border-bottom">Market Cap</div>
 				<ChartMarketCap {stats} />
@@ -71,7 +71,7 @@
 		</div>
 
 		<br />
-		<div class="row mt-4">
+		<div class="row mt-4" in:fade>
 			<div class="col-lg-6 mb-3">
 				<div class="fs-2 text-center border-bottom">% Staked</div>
 				<ChartStakes {stats} />
@@ -83,7 +83,7 @@
 		</div>
 		<br />
 		<br />
-		<div class="row mt-4">
+		<div class="row mt-4" in:fade>
 			<div class="col-lg-6 mb-3">
 				<div class="fs-2 text-center border-bottom">Holders</div>
 				<ChartHolders {stats} />
@@ -95,7 +95,7 @@
 		</div>
 
 		<br />
-		<div class="row mt-4">
+		<div class="row mt-4" in:fade>
 			<div class="col-lg-6 mb-3">
 				<div class="fs-2 text-center border-bottom">14-Day Rewards ($RISE)</div>
 				<ChartRewards {stats} />
@@ -107,7 +107,7 @@
 		</div>
 
 		<br />
-		<div class="row mt-4">
+		<div class="row mt-4" in:fade>
 			<div class="col-lg-6 mb-3">
 				<div class="fs-2 text-center border-bottom">14-Day Total Rewards ($RISE)</div>
 				<ChartTotalRiseRewards {stats} />
@@ -119,7 +119,7 @@
 		</div>
 
 		<br />
-		<div class="row mt-4">
+		<div class="row mt-4" in:fade>
 			<div class="col-lg-6 mb-3">
 				<div class="fs-2 text-center border-bottom">14-Day Buy Volume (USD)</div>
 				<ChartVolumeBuy14Day {stats} />
@@ -131,7 +131,7 @@
 		</div>
 
 		<br />
-		<div class="row mt-4">
+		<div class="row mt-4" in:fade>
 			<div class="col-lg-6 mb-3">
 				<div class="fs-2 text-center border-bottom">2-Day Buy Volume (USD)</div>
 				<ChartVolumeBuy2Day {stats} />
@@ -143,7 +143,7 @@
 		</div>
 
 		<br />
-		<div class="row mt-4">
+		<div class="row mt-4" in:fade>
 			<div class="col-lg-6 mb-3">
 				<div class="fs-2 text-center border-bottom">14-Day Net Volume (USD)</div>
 				<ChartVolumeNet14Day {stats} />
@@ -161,4 +161,49 @@
 	<div in:fade>
 		<PriceFooter {stats} />
 	</div>
+{:else}
+	<div id="loading" class="d-flex justify-content-center align-items-center">
+		<div class="fs-6" id="loading-wrapper">
+			<div>
+				<div class="d-flex justify-content-center flex-column align-items-center">
+					<img
+						id="chart-icon"
+						src="favicon.png"
+						width="32px"
+						height="32px"
+						alt="chart.one is loading"
+					/>
+					<br />
+					<div id="loading-text">Loading...</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {/if}
+
+<style>
+	#loading {
+		position: absolute;
+		overflow: hidden;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	#loading-text {
+		animation: colors 1s linear infinite;
+	}
+	@keyframes colors {
+		0% {
+			transform: scale(1);
+			border-radius: 100%;
+		}
+
+		50% {
+			transform: scale(1.1);
+		}
+
+		100% {
+			transform: scale(1);
+		}
+	}
+</style>
