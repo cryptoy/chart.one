@@ -71,7 +71,7 @@
 		chart.update();
 	}
 
-	const labels = ['14 Days', '7 Days', '2 Days', '1 Day'];
+	const labels = ['14 Days', '7 Days', '2 Days', '24 Hours'];
 
 	const data = {
 		labels: labels,
