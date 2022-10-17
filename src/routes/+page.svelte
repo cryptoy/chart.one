@@ -188,7 +188,6 @@
 						height="32px"
 						alt="chart.one is loading"
 					/>
-					<br />
 					<div id="loading-text">Loading...</div>
 				</div>
 			</div>
