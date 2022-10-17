@@ -21,7 +21,7 @@
 	import Chart14DayBurn from './Chart14DayBurn.svelte';
 	import Chart14DaySupplyChange from './Chart14DaySupplyChange.svelte';
 
-	const REFRESH_INTERVAL = 5000;
+	const REFRESH_INTERVAL = 15000;
 	const STATS_URL = 'https://everrise.azurewebsites.net/stats';
 	let stats;
 
