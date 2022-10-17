@@ -69,14 +69,14 @@
 
 	@media (max-width: 600px) {
 		.marquee {
-			width: 125vw;
+			width: 130vw;
 			animation: marquee-small 12s linear infinite;
 		}
 	}
 
 	@media (max-width: 995px) and (min-width: 601px) {
 		.marquee {
-			width: 105vw;
+			width: 106vw;
 			animation: marquee 16s linear infinite;
 		}
 	}
@@ -86,7 +86,7 @@
 			transform: translateX(100%);
 		}
 		to {
-			transform: translateX(-125%);
+			transform: translateX(-130%);
 		}
 	}
 
@@ -95,7 +95,7 @@
 			transform: translateX(100%);
 		}
 		to {
-			transform: translateX(-105%);
+			transform: translateX(-106%);
 		}
 	}
 </style>
