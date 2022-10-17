@@ -18,6 +18,8 @@
 	import ChartTotalRiseRewards from './ChartTotalRiseRewards.svelte';
 	import ChartVolumeNet2Day from './ChartVolumeNet2Day.svelte';
 	import PriceFooter from './PriceFooter.svelte';
+	import Chart14DayBurn from './Chart14DayBurn.svelte';
+	import Chart14DaySupplyChange from './Chart14DaySupplyChange.svelte';
 
 	const REFRESH_INTERVAL = 5000;
 	const STATS_URL = 'https://everrise.azurewebsites.net/stats';
@@ -81,7 +83,7 @@
 				<ChartAvgMultiplier {stats} />
 			</div>
 		</div>
-		<br />
+
 		<br />
 		<div class="row mt-4" in:fade>
 			<div class="col-lg-6 mb-3">
@@ -97,7 +99,19 @@
 		<br />
 		<div class="row mt-4" in:fade>
 			<div class="col-lg-6 mb-3">
-				<div class="fs-2 text-center border-bottom">14-Day Rewards ($RISE)</div>
+				<div class="fs-2 text-center border-bottom">14-Day Burn (RISE)</div>
+				<Chart14DayBurn {stats} />
+			</div>
+			<div class="col-lg-6 mb-3">
+				<div class="fs-2 text-center border-bottom">14-Day % Chg in Supply on Chain (1 = 1%)</div>
+				<Chart14DaySupplyChange {stats} />
+			</div>
+		</div>
+
+		<br />
+		<div class="row mt-4" in:fade>
+			<div class="col-lg-6 mb-3">
+				<div class="fs-2 text-center border-bottom">14-Day Rewards (RISE)</div>
 				<ChartRewards {stats} />
 			</div>
 			<div class="col-lg-6">
@@ -109,7 +123,7 @@
 		<br />
 		<div class="row mt-4" in:fade>
 			<div class="col-lg-6 mb-3">
-				<div class="fs-2 text-center border-bottom">14-Day Total Rewards ($RISE)</div>
+				<div class="fs-2 text-center border-bottom">14-Day Total Rewards (RISE)</div>
 				<ChartTotalRiseRewards {stats} />
 			</div>
 			<div class="col-lg-6">
