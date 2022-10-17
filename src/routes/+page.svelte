@@ -38,6 +38,7 @@
 </script>
 
 <svelte:head>
+	<title>chart.one</title>
 	<link
 		rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
